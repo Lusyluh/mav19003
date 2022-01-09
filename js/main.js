@@ -1,10 +1,10 @@
 
 const links = [
-    {label:'WEEK1',
+    {label:'WEEK 1',
     url: 'week1/index.html'},
-    {label:'WEEK2',
+    {label:'WEEK 2',
     url: 'week2/index.html'},
-    {label:'WEEK3',
+    {label:'WEEK 3',
     url: 'week3/index.html'},
     {label:'WEEK 4',
     url: 'week4/index.html'},
@@ -23,8 +23,8 @@ function append(listId, arr){
         let li = document.createElement("LI");
         let a = document.createElement("A");
 
-        a.setAttribute('href', arr[0].url);
-        a.innerHTML = arr[0].label;
+        a.setAttribute('href', arr[i].url);
+        a.innerHTML = arr[i].label;
 
         ol.appendChild(li);
         li.appendChild(a);
