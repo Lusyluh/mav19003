@@ -1,0 +1,107 @@
+WEEK 2
+
+TEXTBOOK: JS NINJA NOVICE
+
+CHAPTER 2: POGRAMMING BASICS
+
+The importance of a well commented code
+
+Comments makes it easier for anybody reading your code to understand what's
+going on.
+Makes it easy for the programmer to come back to the code after weeks.
+
+Two types of comments in JS: 
+Single line comments starting with //
+	//this is a short comment
+Multi-line comments starting /* and finishing with */
+	/*This is a long comments
+	that can take mutliple lines
+	and will still be ignored.*/
+
+JS Grammar
+A Javascript statement ends with a new line or semicolon
+ 	const message = 'Hello World!'
+	alert(message)
+
+OR
+	const message = 'Hello World!';alert(message);
+
+Primitive Data Types
+String, Symbol, Number, Boolean, Undefined, Null
+
+Any value that isn't one of the primitive data types listed above is an OBJECT
+
+type the operator typeof to check the data types, e.g typeof 'hello' will return string
+
+
+Variables
+Variables are used in programming languages to refer to a value stored in memory.
+
+Declaring and Assigning Variables
+When to use const and when to use let?
+
+const is used when the variable will not be reassigned to another value
+let is used if the variable might be reassigned later in the program.
+
+examples:
+	const name = 'Alexa';  //this won't be assigned to another string
+	let score = 0;  	// this value may change during the program
+
+
+Scope
+Using const and let to declare variables means they are block scoped, so their 
+value only exists inside the block they are declared in.
+
+There are two common scopes used : Global Scope and Local Scope
+
+Global Scope
+Any variable declared outside of a block is said to have global scope.
+This means it is accessible everywhere in the program.
+
+Local Scope
+
+Any variables defined inside a block using the let or const wwill only be available
+inside that block and not be accessible outside of that block.
+
+
+Template Literals
+
+These are special types of string. Template literals use the backtick `character to
+deliminate the string
+	example: `hello`;
+This has the advantage of being able to use both types of quote marks
+within the string like this
+				`She said, "It's Me!"`
+
+
+They also allow interpolation of JS code, meaning a js expression can be inserted inside
+a string and the result will be displayed
+		const name = `Siri`;
+		`Hello ${ name }!`;
+		result will display 'Hello Siri'
+
+
+Assignment Operators:
+points -= 5; // decreases points by 5
+<< 15
+points *= 2; // doubles points
+<< 30
+points /= 3; // divides value of points by 3
+<< 10
+points %= 7; // changes the value of points to the remainder
+if its current value is divided by 7
+<< 3
+
+Converting between strings and Numbers
+
+Strings to Number: Number('23') <<23
+
+Numbers to Strings: String(3) <<'3'
+
+
+Parsing Numbers
+
+parseInt() -- can be used to convert a string representation of a numeral value back into a 
+number.
+
+

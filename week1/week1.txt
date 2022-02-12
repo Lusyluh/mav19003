@@ -1,0 +1,39 @@
+WEEK 1 Notes
+
+I did not understand the readings for this week. I went to view the pdf
+doing stuff with the web Section 2.3, page 35 and I did not understand.
+I went through the whole section to refresh my mind not exactly knowing what is expected of me.
+Nonetheless, it was refreshing to review all that information.
+
+Can I write my notes using html instead?
+
+*creating an input for capturing my reading notes*
+<body>
+    Write notes here:<input id=name_input></input>
+   <textarea id="notes_editor" placeholder="Notes here."></textarea>
+</body>
+
+#add a section that will hold buttons
+<section>
+ <button onclick="loadNotes()">Find and Edit It</button>
+ <button onclick="saveNotes()">Save It</button>
+ <button onclick="displayNotes()">Display It</button>
+</section>
+
+*javascript to call the function when the enter or save button is clicked
+<script>
+ function loadNotes(){
+ var week = document.getElementById(“name_input”).value
+ var storyHTML = localStorage.getItem(week)
+ document.getElementById(“story_editor”).value = storyHTML
+ }
+ function saveNotes(){
+ var storyName = document.getElementById(“name_input”).value
+ var storyHTML = document.getElementById(“story_editor”).value
+ localStorage.setItem(storyName, storyHTML)
+ }
+ function dsiplayNotes(){
+ var storyHTML = document.getElementById(“story_editor”).value
+ document.getElementById(“story_display”).innerHTML = storyHTML
+ }
+ </script>

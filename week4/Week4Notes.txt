@@ -1,0 +1,92 @@
+WEEK 4 
+
+CHAPTER 8:FORMS
+
+***Accessing Form Elements***
+
+>using index notation: 	const form = document.forms[0] (returns the first
+from a collection of forms in the code)
+
+>OR const form = document.getElementsByTagname('form')[0];
+
+> OR use name attribute to identify a form:
+	const form = document.forms['search'];
+
+
+> const [input,button] = form.elements; --- this will return an HTML collection of all the elements contained in the form.
+In this case, the form contains two controls: an input and a button element.
+
+> OR access form control using their name attributes like so:
+	const input = form.searchInput; or const input = form['searchInput']
+
+***Form Properties and Methods***
+>form.submit() methods will submit the form automatically
+>form.reset() method will reset all the form controls back to their initial values specified in the HTML
+>form.action property can be used to set the action attribute of a form, so it's sent to a different URL to be processed on the server:
+	form.action = '/an/other.url'
+
+***Form Events***
+>focus event
+	const input = form.elements.searchInput;
+	input.addEventListener('focus', () => alert('focused')false);
+
+>blur event
+	input.addEventListener('blur', () => alert('blurred'),false);
+>change event 
+	input.addEventListener('change', () => alert('changed'),false);
+> submit (sends the content of the form to the server to be processed.)
+	form.addEventListener ('submit', search, false);
+	function search() {
+	alert(' Form Submitted');}
+
+***Form Controls***
+<<common typs of form control are:
+<input> fields, including text, passwords, check boxes, radio buttons, and file uploads
+<select> menus for drop-down lists of options
+<textarea> elemets for longer text entry
+<button> elements for submitting and resetting forms.
+
+
+
+CHAPTER 12:Object-Oriented Programming in JavaScript
+
+>OOP involves separating the code into objects that have properties and methods
+>Benefits of OOP:
+		Keeps related pieces of code encapsulated in objects that maintain state
+throughout the life of the program.
+		he objects can also be reused or easily modified as required
+>Polymorphism -- various objects can share the same method, but also have the ability to
+override shared methds with a more specific implementation.
+
+>Inheritance -- we can take an object that already exists and inherit all its properties
+and methods.
+
+Constructor Function
+**example**
+const Dice = function(sides=6){
+this.sides = sides;
+this.roll = function() {
+return Math.floor(this.sides * Math.random() + 1)
+}
+
+
+}
+
+The easiest way to create a new object is to use the literal syntax:
+const literalObject = {};
+<< {}
+It is also possible to use the Object constructor function:
+constructedObject = new Object();
+<< {}
+
+***CLASS DECLARATIONS***
+class Dice {	//dice example from ch3 using class
+constructor(sides=6) {
+this.sides = sides;
+}
+roll() {
+return Math.floor(this.sides * Math.random() + 1)
+}
+}
+
+

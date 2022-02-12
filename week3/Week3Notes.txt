@@ -1,0 +1,175 @@
+WEEK 3 READINGS
+
+Object Methods "this"
+
+Objects are usually created to represent entities of the real world, like users, orders, and so on:
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+Examples of Methods
+
+A function that is a property of an object is called its method.
+like this one: user.sayHi()
+So, here we’ve got a method sayHi of the object user.
+
+This is one way of doing it
+// first, declare
+function sayHi() {
+  alert("Hello!");
+};
+
+// then add as a method
+user.sayHi = sayHi;
+
+user.sayHi(); // Hello!
+
+Object-Oriented Programming (OOP)
+
+A code written using objects to represent entities
+
+Method Shorthand
+Shorter syntax for- methods in an object:
+// these objects do the same
+
+user = {
+  sayHi: function() {
+    alert("Hello");
+  }
+};
+
+// method shorthand looks better, right?
+user = {
+  sayHi() { // same as "sayHi: function(){...}" note that "function has been omitted
+    alert("Hello");
+  }
+};
+
+
+NOW LET'S PUT "THIS" IN METHODS
+To Access the object,a method can use the "this" keyword
+For example, the code inside the method user.sayHi() may need the name(object) of the user
+Code example using "this"
+	let user = {
+		name:"John",
+		age: 30,
+	sayHi(){
+		//"this" is the "current object"
+		alert(this.name);
+
+	
+	}
+};
+user.sayHi(); //alert should pop the name John
+
+"this" is not bound, meaning it can be used in any function, even if it's not a methods of an object.
+ The value of this can be free and evaluated at call-time and does not depend on where the method was declared,
+but rather on what object is "before the dot"
+
+SUMMARY
+>Functions that are stored in object properties are called “methods”.
+>Methods allow objects to “act” like object.doSomething().
+>Methods can reference the object as this.
+
+The value of this is defined at run-time.
+
+>When a function is declared, it may use this, but that this has no value until the function is called.
+>A function can be copied between objects.
+>When a function is called in the “method” syntax: object.method(), the value of this during the call is object.
+****Please note that arrow functions are special: they have no this. When this is accessed inside an arrow function, 
+it is taken from outside.
+
+
+****CHAPTER 5: Objects****
+
+OBJECT LITERALS
+<<<what is an object in Javascript>>>
+It is a self-contained set of related values and functions
+They act as a collection of named properties that map to any JavaScript
+value such as strings, number, booleans, arrays and functions
+**if a property's value is a function, it is known as a method 
+Objects are often used to keep any related information and functionality together in the same
+place.
+An object literal is an object that is created directly in the language by wrapping all its properties
+and methods in curly braces{}
+***example of an object literal that describes the Man of Steal***
+const super = {
+name: 'Superman',
+'real name' = 'Clark Kent',
+height: 75,
+weight: 235,
+hero:true,
+villiain:false,
+allies:['Batman', 'Supergirl', 'Superboy'],
+//now the function
+fly(){
+    return 'Up, up and away!';
+}
+};
+<<<take note from the example>>>
+>each property is the key-value pair separated by commas (first property is name and its value superman)
+>fly() property is a ethod because its value is a function
+
+<<<Creating Objects>>>
+empty object > const spiderman = {}
+or create an object using a constructor function like this:
+	const spiderman = new Object();>>>>not recommended
+
+<<<Accessing Properties>>>
+Use a dot notation: superman.name //this will retuen Superman as the name is assigned to this property
+Or use bracket[] notation where a property is represented by a string inside square brackets
+like so: superman['name'] //this will return the name Superman
+Dot notation is much more common, but bracket notation has a few advantages:
+it’s the only way to access nonstandard property and method names that don’t
+follow the variable naming rules.
+
+
+<<<CALLING METHODS>>>
+
+
+>Dot or brackt notation can still be used here
+>Calling a method is the same as invoking a function, so parentheses need to be placed after the
+method name like so : 	superman.fly()   //'Up, up and away!' OR superman['fly']()
+
+***TO CHECK IF PROPERTIES OR METHODS EXIST***
+>Use "in" operator
+>for example we can check if the superman object has a property called city like this:
+		'city' in superman  //results should be false
+> OR check if the property or methods returns undefined:
+		superman.city !== undefined; //results will still return false
+> OR use the hasOwnProperty() method like : superman.hasOwnProperty('city');
+
+
+<<<ADD PROPERTIES>>>
+superman.city = 'Metropolis';
+
+<<<CHANGING PROPERTIES>>>
+>Let change the real name of superman
+	superman['real name'] = 'Kal-El';
+
+<<<REMOVING PROPERTIES>>>
+delete superman.fly (removes the fly method fromt he superman object)
+
+***OBJECTS AS PARAMETERS TO FUNCTIONS***
+An object literal can be passed as a parameter to a function
+This is useful when there are a large number of parameters, as it allows the arguments to be
+provided by name and in any order.
+
+example: function greet({greeting,name,age}){
+		return `${greeting}! My name is ${name} and I am ${age} years old. `}
+greet({greeting:`What's up dude`, age: 10, name:`Bart`}); //notice how the order differs
+
+>Default values can be assigned :function greet({greeting='Hello', name,age = 18}){
+					return `${greeting}! My name is ${name} and I am ${age} years old. `;}
+<<using this>>
+"this" can be used inside methods to gain access to the object's properties
+	const dice = {
+		sides:6,
+		roll(){
+		   return Math.floor(this.side * Math.random()) + 1;}}
+Inside the roll() method, we use this.sides to refer to the value of the object's sides property.
+
+
+
