@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Week 7</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Portfolio for Lusanda Mavuma WDD330, BYUI">
+        <link rel="stylesheet" href="frontpage.css"> 
+    </head>
+    <body>
+        <header>
+            <h2 id="col_h"> Welcome to Week 7</h2>     
+        </header>
+        <main>
+            <h2>Functions Properties and Methods</h2>
+                <a href="week4Notes.txt">Recap on functions</a>
+            
+            <h3>Call and Apply Methods</h3>
+            <p>call() method can be used to set the value of this inside a function to an object that is provided as the first argument</p>
+            <p>Example: We can create some objects that have a name property, then use the call() method
+                to invoke the sayHello() function.
+
+                const clark = {name:'Clarke'};
+                const bruce = {name: 'Bruce'};
+
+                sayHello.call(clark);
+                result: 'Hello, my name is Clarke'
+            </p>
+            <h3>Immediately Invoked Function Expressions</h3>
+            <p>An immediately Invoked Function Expressions("iffy) is an anonymous function that is invoked as soon
+                as it is defined
+                (function(){
+                    const temp = 'World';
+                    console.log(`Hello ${temp}`);
+                    })();
+                    'Hello World'
+            </p>
+            <h3>Functions that Define and Rewrite themselves</h3>
+            <p>How? : Assign an aonymous function to a variable that has <strong>the same name as the function</strong>
+            Consider the ff:
+            function party(){
+                console.log('Wow this is amazing!');
+                party = function(){
+                console.log('Been there, got the T-Shirt');
+                }
+                }
+            This logs a message in the console, then redefines itself to log a different message in the console</p>
+            <h3>Recursive Functions</h3>
+            <p>A recursive function is one that invokes itself until a certain condition is met 
+               <ul>
+                   <li>Useful whn iterative processes are involved</li>
+                   <li>Example:function factorial(n) {
+                    if (n === 0) {
+                    return 1;
+                    } else {
+                    return n * factorial(n - 1);
+                    }
+                    } </li>
+                    <li>The function above will return 1 if 0 is provided as an argument(0 factorial is 1)
+                        otherwise it will multiply the argument by the result of invoking itself with argument of one less. 
+                    </li>
+                    <li>The function will continue until 0 and 1 is returned</li>
+               </ul> 
+            </p>
+            <h3>Callbacks</h3>
+            <a href="week4/index.html">See chapter 4</a>
+            <p>Callbacks can be used to to facilate event-driven asychronous programming</p>
+            <p>This means  only peice of cOde will ever be processed at a time.The code run asychronously</p>
+            <p>Using callbacks ensure that waiting for a task to complete doesn't hold up the execution of othr parts of the program.
+                setTimeout() function can be used to callback after a given number of seconds.
+            </p>
+            <p>Callback Hell: more and more callbacks are used in the same function.</p>
+
+            <h3>Promises</h3>
+            <p>A promise represents the future results of an asynchronous operation</p>
+        </main>
+        
+    </body>
+</html>
