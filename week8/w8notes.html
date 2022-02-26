@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Week 8</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Portfolio for Lusanda Mavuma WDD330, BYUI">
+        <link rel="stylesheet" href="w8notes.css"> 
+    </head>
+    <body>
+        <header>
+            <h2 id="col_h"> Welcome to Week 7</h2>     
+        </header>
+        <main>
+            <h2>CSS3 Transforms and Transitions</h2>
+
+            <h3>Transforms</h3>
+            <p><strong>What does it do?</strong>- enables translation, rotation, scale, and/or skew any element on the page.We use transform functions to manipulate the appearance</p>
+            <h3>1.Translation</h3>
+            <p>Translation functions allow movement of elements to the left, right, up, or down</p>
+            <p>These functions are similar to the behavior of position: relative; when declaring top and left, moving elements up and down or left and right along the x and y axis</p>
+            <p>A translated element can only be moved relative to its current position without impacting the flow of the document.</p>
+            <p><strong>translatex or translatey</strong>move an element vertically or horizontally</p>
+            <p>e.g to move up the y-axis by 30px: transform: translateY(-30px)</p>
+            <p>Note: transforms must have a prefix -webit- to support older browser versions.
+                Also, transforms don't work on inline elements like *span, you must change display: inline-block;</p>
+
+            <h3>2.Scaling</h3>
+            <p>The scale(x,y) function scales an element by the defined factors horizontally then verticall. If one value is provided, it will be used for both x and y values</p>
+            <p>For example- <strong></strong> scale(1.5, 0.25</strong> will distort the element</p>
+            <p>A scaled element will grow outwards from or shrink inwards towards its center</p>
+
+            <h3>3.Rotation</h3>
+            <p>The rotate() function rotates an element around the pointof origin a specified angle value.As with scale, by default the point of origin is the element's center </p>
+            <p>values must be in degrees:
+                <ul>transform: rotate(10deg) translateX(40px) scale(1.5);</ul>
+                <ul>The example above  rotates the element by 10 degs clockwise, moving it along the x-axis by 40px and making it larger by 1.5</ul>
+                <ul>Note: transforms are applied in the order provided</ul>
+            </p>
+            <h3>4.Skew</h3>
+            <h4 class="skewed">A Skewed Perspective</h4>
+            <p>The skew(x,y) function specifies a skew along the x and y axes.
+                If the second parameter s omitted, the skew will only apply on the <x-axis class=""></x-axis>
+            </p>
+            <p></p>
+
+
+
+        </main>
+        
+    </body>
+</html
