@@ -8,9 +8,10 @@
     margin:15px;
 }
 /*when hovering over this word, let it rotate by 45 deg clockwise*/
-.skewed:hover{
-    transform: rotate(-15deg) scale(1.5, 0.25);
+h4:hover{
+    /*transform: translate(1em, 1em) rotate(-15deg) scale(1.5, 0.25);*/
     color:red;
+    transform: rotate(15deg);
 }
 h3, h2{
     margin:10px;
