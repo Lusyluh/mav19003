@@ -37,3 +37,24 @@ p, li{
     background-color: green;
     cursor: pointer;
   }
+  /*transition-duration is the time it takes to go from default state to the
+  transitioned state. 
+  200ms(or 0.2s) is generally considered the optimum time for a transition; anything slower
+  will make the website seem slow*/
+  .trans{
+      border:1px solid red;
+      background-color: cornflowerblue;
+      width:80%;
+      margin:auto;
+  }
+  /*note: shorthand for below is written like this
+  .trans:hover{
+      transition: transform 5s linear 50ms;}*/
+  .trans:hover{
+      background-color: darkgreen;
+      color:white;
+      transition-property: transform, color;
+      transition-duration: 5s;
+      transition-timing-function: linear;
+      transition-delay: 50ms;
+  }
