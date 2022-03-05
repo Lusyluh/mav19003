@@ -76,7 +76,7 @@ squareElement.style.transform = `rotate(${angle}deg)`
 
 }
 //stop the animation
-let myVar = setInterval(stopAnime ,1000);
 const stopAnime = () =>{
-    
+    let myVar = anime();
+    clearInterval(myVar);
 }
