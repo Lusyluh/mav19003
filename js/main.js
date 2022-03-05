@@ -15,7 +15,9 @@ const links = [
     {label:'WEEK 7',
     url: 'week7/index.html'},
     {label:'WEEK 8',
-    url: 'week8/w8notes.html'}
+    url: 'week8/w8notes.html'},
+    {label:'WEEK 9',
+    url: 'week9/w9notes.html'}
 
 ];
 append('tc', links);
