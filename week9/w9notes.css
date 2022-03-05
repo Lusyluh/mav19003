@@ -44,3 +44,15 @@
       margin-left:8px;
       margin-top: 8px;
   }
+  button {
+      padding:10px;
+      margin-left:16px;
+      width:150px;
+  }
+  button:hover{
+      background-color: #000;
+      color:#fff;
+  }
+  .block-examples{
+      border:1px solid #000;
+  }

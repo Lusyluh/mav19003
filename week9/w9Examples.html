@@ -13,8 +13,39 @@
             <hr>     
         </header>
         <div class="topnav">
-            <a class="active" href="#home">Notes</a>
-            <a href="#news">Examples</a>
+            <a href="w9notes.html">Notes</a>
+            <a class="active" href="w9Examples.html">Examples</a>
         </div>
+        <main>
+            <h1>The Window Object</h1>
+            <div class="block-examples"><h2>The alert() Method</h2>
+
+            <p>Click the button to display an alert box.</p>
+            <button onclick="myAlert()">Try it</button>
+            </div>
+            <div class="block-examples">
+                <h2>The confirm() Method</h2>
+
+                <p>Click the button to see a confirm box.</p>
+                
+                <button onclick="myConfirm()">confirm</button>
+                
+                <p id="exConfirm"></p>
+            </div>
+            <div class="block-examples">
+                <h2>The prompt() Method</h2>
+                <p>Click the button to demonstrate the prompt box.</p>
+                <button onclick="myPrompt()">Enter</button>
+                <p id="ex-prompt"></p>
+            </div>
+            <div>
+                <h1>The Window Location Object</h1>
+                <h2>The origin Property</h2>
+                <p id="origin"></p>
+            </div>
+
+
+        </main>
+        <script src="w9.js"></script>
     </body>
 </html
