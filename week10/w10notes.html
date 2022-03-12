@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Week 10</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Portfolio for Lusanda Mavuma WDD330, BYUI">
+        <link rel="stylesheet" href="/mav19003/week9/w9notes.css"> 
+    </head>
+    <body>
+        <header>
+            <h1 id="col_h"> Client-side Form validation</h1>
+            <hr>     
+        </header>
+        <div class="topnav">
+            <a class="active" href="w10notes.html">Notes</a>
+            <a href="w10Examples.html">Examples</a>
+            <a href="#"> Questions?</a>
+        </div>
+        <main>
+           <h1>Client-side Validation</h1>
+           <p>Client-side validation is an initial check and an important feature of good user experience; by catching invalid data on the client-side,
+                the user can fix it straight away. If it gets to the server and is then rejected, a noticeable delay is caused by a round trip to the server
+                 and then back to the client-side to tell the user to fix their data.</p>
+            <h2>What is form validation?</h2>
+            <p>When entering data, the browser and/or the web server usually check to see that the data is in the correct format and within the constraints set
+                 by the application. Validation done in the browser is called <strong>client-side </strong>validation, while validation done on the server is called <strong>server-side</strong>validation.
+                  In this chapter we are focusing on client-side validation.</p>
+            <h3>Reasons to validate:</h3>
+            <div>
+                <ul>
+                    <li>to get the right data, in the right format</li>
+                    <li>to protect our users' data. Forcing our users to enter secure passwords makes it easier to protect their account information.</li>
+                    <li> to protect ourselves. There are many ways that malicious users can misuse unprotected forms to damage the application</li>
+                </ul>
+            </div>
+            <h2>Using built-in form validation</h2>
+            <ul>
+                <li>required: Specifies whether a form field needs to be filled in before the form can be submitted.</li>
+                <li>minlength and maxlength: Specifies the minimum and maximum length of textual data (strings)</li>
+                <li>min and max: Specifies the minimum and maximum values of numerical input types</li>
+                <li>type: Specifies whether the data needs to be a number, an email address, or some other specific preset type.</li>
+                <li>pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.</li>
+
+            </ul>
+
+            <h2>Validating forms using JavaScript</h2>
+            <h3>Constraint validation API</h3>
+            <ul>
+                <li>HTMLButtonElement (represents a button element)</li>
+                <li>HTMLFieldSetElement (represents a fieldset element)</li>
+                <li>HTMLInputElement (represents an input element)</li>
+                <li>HTMLOutputElement (represents an output element)</li>
+                <li>HTMLSelectElement (represents a select element)</li>
+                <li>HTMLTextAreaElement (represents a textarea element)</li>
+
+            </ul>
+        </main>
+        <script src="w10.js"></script>
+    </body>
+</html

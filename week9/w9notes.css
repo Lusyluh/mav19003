@@ -62,3 +62,79 @@
     height: 100px;
     background: #d16;
     }
+  /*styling for week 10*/
+  .myForms{
+    display:block;
+    margin: 16px auto;
+    border:.5px solid #000;
+    width:80%;
+    padding:0.5em;
+  }
+  /*This CSS causes the input to have a red dashed border when it is invalid
+   and a more subtle solid black border when valid. We also added a background
+    gradient when the input is required and invalid. Try out the new behavior in 
+    the example below:*/
+
+
+  input:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:invalid:required {
+    background-image: linear-gradient(to right, pink, lightgreen);
+  }
+  
+  input:valid {
+    border: 2px solid black;
+  }
+
+
+  /*validating using javascript*/
+  .second-form {
+    background-color: grey;
+    display:block;
+    margin: 16px auto;
+    border:.5px solid #000;
+    width:80%;
+    padding:0.5em;
+    
+  }
+  label {
+    display: block;
+    margin:.5em;
+    padding:.5em;
+  }
+  ul{
+    margin-left: 2rem;
+  }
+  
+input[type=email]{
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  box-sizing: border-box;
+}
+
+  /* This is the style of our error messages */
+.error {
+  width  : 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}

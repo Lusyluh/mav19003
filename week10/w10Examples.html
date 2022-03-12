@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Week 10</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Portfolio for Lusanda Mavuma WDD330, BYUI">
+        <link rel="stylesheet" href="/mav19003/week9/w9notes.css"> 
+    </head>
+    <body>
+        <header>
+            <h1 id="col_h"> Client-side Form validation</h1>
+            <hr>     
+        </header>
+        <div class="topnav">
+            <a href="w10notes.html">Notes</a>
+            <a class="active" href="w10Examples.html">Examples</a>
+            <a href="#"> Questions?</a>
+        </div>
+        <main>
+            <div class="myForms"><h1>Built-in form validation</h1>
+            <form>
+                <label for="fname">First Name(required):</label>
+                <input id="fname" name="firstName" required>
+                <label for="lname">Last Name(required):</label>
+                <input id="lname" name="lastName" required>
+                <label for="quantity">Quantity of fruits (between 1 and 5):</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="5">
+
+                <button>Submit</button>
+            </form></div>
+            <div class="second-form">
+                <h1>Validating forms using JavaScript</h1>
+                <form>
+                    <label for="fname">First Name(required):</label>
+                    <input id="fname" name="firstName">
+                    <label for="lname">Last Name(required):</label>
+                    <input id="lname" name="lastName">
+                    <label for="quantity">Quantity of fruits (between 1 and 5):</label>
+                    <input type="number" id="quantity">
+                    <label for="mail"> e-mail address:</label>
+                    <input type="email" id="mail" name="mail"  required minlength="8">
+                    <span class="error" aria-live="polite"></span>
+                    
+    
+                    <button>Submit</button> 
+                </form>
+            </div>
+        </main>
+        <script src="w10.js"></script>
+    </body>
+</html>
