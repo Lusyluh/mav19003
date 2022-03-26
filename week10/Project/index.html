@@ -18,17 +18,39 @@
             <input type="text" placeholder="Enter City:" id="cityinput">
             <input type="submit" value="Submit" id="add">
             <button placeholder="submit" id="add"></button>
+            <span class="err-msg"></span>
             
         </section>
          <!--I want to display the weather information here-->
-        <section class="display_box">
-            <div class="wrapper">
+        <section class="location">
+            <!--display city name and country-->
+            <div class="myCity">
+                City, Country
+            </div>
+            <!--display date of retrieving weather data, i.e current date-->
+            <div class="date">
+                Day, Month Date, Year
+            </div>
+        </section>
+            <!--search results here-->
+            <!--<section>-->
+            <div class="current">
+                <div id="temp">Temp<span>°c</span></div>
+                <div class="weather-icon">
+                    <!--<img alt="weather_icon">-->
+                    <span id="imagesrc"></span>&nbsp <img src="" alt="" id="icon"></p>
+                </div>
+                <div class="weather">Weather</div>
+                <div class="desc">Weather_description</div>
+                <div class="hi-low">min_temp°c/ max_temp°c</div>
+            </div>
+            <!--<div class="wrapper">
                 <h2 id="cityoutput"></h2>
                 <p id="description"></p>
                 <p id="temp"></p>
                 <p id="wind"></p>
             </div>
-          </section>
+          </section>-->
         <script src="js/main.js"></script>
     </body>
 </html>
