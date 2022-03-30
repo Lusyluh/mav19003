@@ -11,7 +11,7 @@ const msg = document.querySelector('.err-msg')
 btn.addEventListener('click', e =>{
   e.preventDefault()
   let inputValue = inputval.value;
-  const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&APPID=cbd2cdfdd1f438f29af3417a193151ae&units=imperial`;
+  const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&APPID=cbd2cdfdd1f438f29af3417a193151ae&units=metric`;
   fetch(apiURL)
   .then(response => response.json())
   .then(data =>{
