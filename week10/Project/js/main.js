@@ -29,24 +29,28 @@ btn.addEventListener('click', e =>{
 const displayResults = (weather) =>{
   let myCity = document.querySelector('.location .myCity');
   myCity.innerText = `${weather.name}, ${weather.sys.country}`;
-  let temperature = document.getElementById('temp');
-  temperature.textContent = weather.main.temp;
+  
+  
   //get the current date and display it as Day Month Date and year
   let todayDate = new Date();
   let date = document.querySelector('.location .date');
     date.innerText = dateBuilder(todayDate);
-
+  //get the temperature, weather and weather description
+  let temperature = document.getElementById('temp');
+  temperature.textContent = weather.main.temp;
+  let currentWeather = document.querySelector('.weather');
+  currentWeather.textContent = weather.weather[0].main;
+  let desc = document.querySelector('.desc');
+  desc.innerText = weather.weather[0].description;
   //get the icon associated with the current weather
   let imagesrc = 'https://openweathermap.org/img/w/' + weather.weather[0].icon + '.png';
   document.getElementById('icon').setAttribute('src',imagesrc);
   document.getElementById('icon').setAttribute('alt',desc);
 
-  //get the weather and weather description
-  let currentWeather = document.querySelector('.current .weather');
-  currentWeather.textContent = weather.weather[0].main;
-  let desc = document.querySelector('.desc');
-  desc.innerText = weather.weather[0].description;
-  
+  // selecting the element and setting the current min and max temperature of city
+  let min_max = document.querySelector('.current .hi-low');
+  min_max.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
+
 }
 // returns today's date
 const dateBuilder = (d) => {
