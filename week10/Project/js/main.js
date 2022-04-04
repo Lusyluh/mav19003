@@ -5,9 +5,14 @@ const inputValue = inputval.value;
 const btn = document.querySelector('#add');
 const msg = document.querySelector('.err-msg')
 
-//connect to openweathermap.com
+// //the user can also press enter after the input
+// inputval.addEventListener('keypress', setQuery);
 
-
+// function setQuery(e) {
+//     if(e.keyCode == 13) {
+//         getWeather(inputval.value);
+//     }
+// }
 //fetch data and return json
 btn.addEventListener('click', e =>{
   e.preventDefault()
@@ -23,43 +28,7 @@ btn.addEventListener('click', e =>{
   .catch(err => {
     console.log(err);
   });
-
-  // fetch the 7 day forecast using this url
-  const dayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=${apiKey}&units=metric`;
-  fetch(dayURL)
-  .then(res => res.json())
-  .then(jsObject => {
-    console.log(jsObject);
-    
-    //connect the html
-    let forecastEl = document.querySelector('#forecast');
-    //create a new div for the data
-    let dayNum = "<div class='grid-container'>";
-        for( let i = 0; i < jsObject.list.length; i++){
-          if(jsObject.list[i].dt_txt.includes("18:00:00")){
-            let TimeOfData = jsObject.list[i].dt;
-            let currentDate = new Date(TimeOfData * 1000);
-            let weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-            let dayofWeek = weekday[currentDate.getDay()];
-            var icon = jsObject.list[i].weather[0].icon;
-            var temp = jsObject.list[i].main.temp.toFixed(0);
-            dayNum += `<div class="forecast-day">
-                    <p>${dayofWeek}</p>
-						        <p>Forecast: <img src='http://openweathermap.org/img/wn/${icon}@2x.png'> ${jsObject.list[i].weather[0].description}</p>
-						        <div class="forecast-day--temp">${temp}<sup>°C</sup></div>
-					          </div>`;
-                  }
-        }
-        dayNum += "</div>";
-        //  display data into a web page
-        forecastEl.innerHTML += dayNum;
-		})
-    .catch(err => {
-
-      msg.textContent = "Please search for a valid city";
-      console.log(err);
-    })
-  })
+})
 //display current weather data here
 function displayResults(weather) {
   let myCity = document.querySelector('.location .myCity');
@@ -96,4 +65,45 @@ const dateBuilder = (d) => {
   let month = months[d.getMonth()];
   let year = d.getFullYear();
   return `${day}, ${date} ${month} ${year}`;
+}
+//click button to get forecast for the whole week displayed
+const checkDaily = document.querySelector('#checkDaily');
+checkDaily.addEventListener('click', getForecast)
+
+const getForecast = () =>{
+  // fetch the 7 day forecast using this url
+  const dayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=${apiKey}&units=metric`;
+  fetch(dayURL)
+  .then(res => res.json())
+  .then(jsObject => {
+    console.log(jsObject);
+    
+    //connect the html
+    let forecastEl = document.querySelector('#forecast');
+    //create a new div for the data
+    let dayNum = "<div class='grid-container'>";
+        for( let i = 0; i < jsObject.list.length; i++){
+          if(jsObject.list[i].dt_txt.includes("18:00:00")){
+            let TimeOfData = jsObject.list[i].dt;
+            let currentDate = new Date(TimeOfData * 1000);
+            let weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            let dayofWeek = weekday[currentDate.getDay()];
+            var icon = jsObject.list[i].weather[0].icon;
+            var temp = jsObject.list[i].main.temp.toFixed(0);
+            dayNum += `<div class="forecast-day">
+                    <p>${dateBuilder(currentDate)}</p>
+						        <p>Forecast: <img src='http://openweathermap.org/img/wn/${icon}@2x.png'> ${jsObject.list[i].weather[0].description}</p>
+						        <div class="forecast-day--temp">${temp}<sup>°C</sup></div>
+					          </div>`;
+                  }
+        }
+        dayNum += "</div>";
+        //  display data into a web page
+        forecastEl.innerHTML += dayNum;
+		})
+    .catch(err => {
+
+      msg.textContent = "Please search for a valid city";
+      console.log(err);
+    })
 }

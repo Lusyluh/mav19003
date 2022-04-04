@@ -5,9 +5,44 @@
     padding: 0;
     
 }
-body{
-    font-family: 'montserrat',sans-serif;
-    /*background-image: url('../images/background.jpg');
-    background-size: cover;*/
-    background-position: top center;
+body {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: rgb(41, 52, 202);
+    color: white;
   }
+/*search input area*/
+.inputs input{
+    width: 100%;
+    max-width: 280px;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background-color: rgba(230, 224, 224, 0.109);
+    border-radius: 16px;
+    color: #313131;
+    font-size: 20px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+  }
+.inputs input:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+/*current weather display*/
+.location {
+    flex: 1 1 100%;
+    padding: 25px 25px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.forecast-day{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    border:1px solid red;
+}
