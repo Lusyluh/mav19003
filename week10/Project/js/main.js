@@ -40,8 +40,8 @@ function displayResults(weather) {
   let date = document.querySelector('.location .date');
   date.innerText = dateBuilder(todayDate);
   //get the temperature, weather and weather description
-  let temperature = document.getElementById('temp');
-  temperature.textContent = weather.main.temp;
+  let temperature = document.querySelector('.temp');
+  temperature.textContent = `${Math.round(weather.main.temp)}°c`;
   let currentWeather = document.querySelector('.weather');
   currentWeather.textContent = weather.weather[0].main;
   let desc = document.querySelector('.desc');
@@ -70,8 +70,9 @@ const dateBuilder = (d) => {
 const checkDaily = document.querySelector('#checkDaily');
 checkDaily.addEventListener('click', getForecast)
 
-const getForecast = () =>{
+function getForecast() {
   // fetch the 7 day forecast using this url
+  let inputValue = inputval.value;
   const dayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=${apiKey}&units=metric`;
   fetch(dayURL)
   .then(res => res.json())
@@ -89,11 +90,13 @@ const getForecast = () =>{
             let weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
             let dayofWeek = weekday[currentDate.getDay()];
             var icon = jsObject.list[i].weather[0].icon;
-            var temp = jsObject.list[i].main.temp.toFixed(0);
+            let max_temp = jsObject.list[i].main.temp_max.toFixed(0);
+            let min_temp = jsObject.list[i].main.temp_min.toFixed(0);
             dayNum += `<div class="forecast-day">
                     <p>${dateBuilder(currentDate)}</p>
-						        <p>Forecast: <img src='http://openweathermap.org/img/wn/${icon}@2x.png'> ${jsObject.list[i].weather[0].description}</p>
-						        <div class="forecast-day--temp">${temp}<sup>°C</sup></div>
+						        <p><img src='http://openweathermap.org/img/wn/${icon}@2x.png'></p>
+						        <div class="forecast-day--temp">${max_temp} / ${min_temp}</div>
+                    <div class="forecast-descr">${jsObject.list[i].weather[0].description}</div>
 					          </div>`;
                   }
         }
@@ -106,4 +109,32 @@ const getForecast = () =>{
       msg.textContent = "Please search for a valid city";
       console.log(err);
     })
+}
+//automatically get weather by geolocation
+if('geolocation' in navigator) {
+  navigator.geolocation.getCurrentPosition(setPosition, showError);
+} else {
+  showError('Geolocation is not supported by this browser.')
+}
+
+function setPosition(position) {
+  let { latitude, longitude} = position.coords;
+  getWeatherByGeo(latitude, longitude);
+}
+
+function showError(error) { 
+
+}
+
+async function getWeatherByGeo(latitude, longitude) {
+  try {
+      const query = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${apiKey}`;
+      const res = await fetch(query);
+      console.log("res: ", res);
+      const weather = await res.json();
+      console.log("weather: ", weather);
+      displayResults(weather);
+  } catch(err) {
+      showError(err);
+  }
 }
