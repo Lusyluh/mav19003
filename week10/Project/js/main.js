@@ -15,6 +15,9 @@ const msg = document.querySelector('.err-msg')
 // }
 //fetch data and return json
 btn.addEventListener('click', e =>{
+
+  getForecast(false, null, null);
+
   e.preventDefault()
   let inputValue = inputval.value;
   const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&&APPID=${apiKey}&units=metric`;
@@ -70,19 +73,37 @@ const dateBuilder = (d) => {
 const checkDaily = document.querySelector('#checkDaily');
 checkDaily.addEventListener('click', getForecast)
 
-function getForecast() {
+function getForecast(isGeolocated, latitude, longitude) {
   // fetch the 7 day forecast using this url
   let inputValue = inputval.value;
-  const dayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=${apiKey}&units=metric`;
-  fetch(dayURL)
+
+  let dayURL;
+
+  if(isGeolocated){
+    dayURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&APPID=${apiKey}&units=metric`;
+  }else{
+    dayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=${apiKey}&units=metric`;
+  }
+   fetch(dayURL)
   .then(res => res.json())
   .then(jsObject => {
     console.log(jsObject);
     
     //connect the html
     let forecastEl = document.querySelector('#forecast');
+
+    // fetch container div if it exists
+    let gridContainer = document.querySelector('#grid-container');
+
+    // clear the container element if it exists
+    if(gridContainer){
+
+      gridContainer.parentNode.removeChild(gridContainer);
+
+    }
+
     //create a new div for the data
-    let dayNum = "<div class='grid-container'>";
+    let dayNum = "<div class='grid-container' id='grid-container'>";
         for( let i = 0; i < jsObject.list.length; i++){
           if(jsObject.list[i].dt_txt.includes("18:00:00")){
             let TimeOfData = jsObject.list[i].dt;
@@ -112,14 +133,23 @@ function getForecast() {
 }
 //automatically get weather by geolocation
 if('geolocation' in navigator) {
+
   navigator.geolocation.getCurrentPosition(setPosition, showError);
+
 } else {
+
   showError('Geolocation is not supported by this browser.')
+
 }
 
 function setPosition(position) {
+
   let { latitude, longitude} = position.coords;
+
   getWeatherByGeo(latitude, longitude);
+
+  getForecast(true, latitude, longitude);
+
 }
 
 function showError(error) { 
