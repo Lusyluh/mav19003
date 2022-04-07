@@ -114,7 +114,7 @@ function getForecast(isGeolocated, latitude, longitude) {
             let max_temp = jsObject.list[i].main.temp_max.toFixed(0);
             let min_temp = jsObject.list[i].main.temp_min.toFixed(0);
             dayNum += `<div class="forecast-day">
-                    <p>${dateBuilder(currentDate)}</p>
+                    <h4 class="day">${dateBuilder(currentDate)}</h4>
 						        <p><img src='http://openweathermap.org/img/wn/${icon}@2x.png'></p>
 						        <div class="forecast-day--temp">${max_temp} / ${min_temp}</div>
                     <div class="forecast-descr">${jsObject.list[i].weather[0].description}</div>
