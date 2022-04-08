@@ -84,10 +84,10 @@ function renderCondition (weather){
   let conditions = document.querySelector('#weatherDetails');
       conditions.innerHTML = `
                           <ul class = "list-unstyled list-group">
-                          <li class="list-group-item"><span class="wi wi-humidity"></span> Feels Like </a>
-                          <a><span class="pull-right humiditySide">${Math.round(weather.main.feels_like)}&deg;C</span></a>
+                          <li class="list-group-item"><a>Feels Like </a>
+                          <a><span class="pull-right">${Math.round(weather.main.feels_like)}&deg;C</span></a>
                           </li>
-                          <li class="list-group-item"><a><span class="wi wi-humidity"></span> Humidity </a>
+                          <li class="list-group-item"><a> Humidity </a>
                           <a><span class="pull-right humiditySide">${weather.main.humidity}%</span></a>
                           </li>
                           <li class="list-group-item"><a> Min Temperature </a><a><span class="pull-right minSide celsi">${Math.round(weather.main.temp_min)}&deg;C</span></a></li>
