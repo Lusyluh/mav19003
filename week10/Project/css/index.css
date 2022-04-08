@@ -10,7 +10,7 @@ body {
     background-image: url('../images/lake-g.jpg');
     background-size: cover;
     min-height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 0;
     margin: 0;
     color: white;
@@ -63,8 +63,8 @@ input {
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;
-    align-items: center;
-    text-align: center;
+    align-items: left;
+    text-align: left;
     padding: 25px 25px 50px;
 }
 .location .myCity {
@@ -78,12 +78,12 @@ input {
     font-size: 16px;
 }
 .current {
-    text-align: center;
+    text-align: left;
 }
 .current .temp{
-    font-size: 102px;
+    font-size: 80px;
     font-weight: 900;
-    margin: 30px 0px;
+    margin: 10px 0px;
     text-shadow: 5px 5px rgba(0, 0, 0, 0.4);
 }
 .current .weather {
@@ -93,10 +93,11 @@ input {
     margin-bottom: 15px;
     text-shadow: 1px 2px rgba(0, 0, 0, 0.4);
 }
-.forecast {
-    margin-left:20px;
-    margin-right:20px;
-}
+.current .weather-icon img{
+    width:150px;
+    height:150px;
+} 
+
 /*container to hold the weather cards*/
 .grid-container{
     display:flex;
@@ -104,7 +105,6 @@ input {
     background-color: #fff;
     color:#000;
     opacity:.8;
-    border:1px solid red;
     width:100%;
 }
 /*weather cards*/
@@ -113,16 +113,8 @@ input {
     text-align:center;
     cursor:pointer;
     padding-bottom: 10px;
-    /* margin:  20px 5px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    width: 270px;
-    height: 270px;
-    background-color:#fff;
-    color:#000;
-    box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
-    animation: appear 500ms ease-out forwards; */
+    width:100px;
+    border:0.3px solid #808080;
 }
 .forecast-day:hover{
     color: #ffffff;
@@ -137,16 +129,28 @@ input {
 .forecast-day .day{
     text-transform: uppercase;
 }
+.celsi {
+    font-size: 20px;
+    font-weight: 400;
+}
 .forecast-day img {
     position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 40px 40px 0 0;
+    width: 100px;
+    height: 80px;
+    margin: auto;
     animation: weather-icon-move 5s ease-in-out infinite;
 }
+
 /**/
 img {
-    display: block;
     max-width: 100%;
     height: auto;
   }
+/*right panel*/
+.col-md-4 {
+    opacity:0.9;
+}
+
+.pull-right{
+    float:right;
+}

@@ -11,37 +11,52 @@
   </head>
     <body>
         <div class="container">
+            <div class="row">
+                <div class="col-md-8">
             <!--User to enter city name-->
             <header class="inputs">
                 <input type="text" placeholder="Enter city name:" id="cityinput">
                 <!-- <input type="submit" value="Submit" id="add"> -->
-                <button placeholder="submit" id="add" ><i class="fa fa-search fa-2x"></i>Search</button>
+                <button placeholder="submit" id="add" ><i class="fa fa-search"></i>Search</button>
                 <span class="err-msg"></span>
+                
             </header>
          <!--I want to display the weather information here-->
-        <section class="location">
+        <div class="location">
             <!--display city name and country-->
             <div class="myCity"></div>
             <!--display date of retrieving weather data, i.e current date-->
             <div class="date"></div>
-        </section>
+        </div>
+        <button class="btn btn-info" id="fave"><i class="fa fa-star" aria-hidden="true"></i>Set as Favorite City</button>
+        
         <!--search results here-->
         <div class="current">
+            <div class="currentday"><small>Current</small></div>
             <div class="temp">Temp<span>°c</span></div>
             <div class="weather-icon">
                 <!--<img alt="weather_icon">-->
                 <span id="imagesrc"></span>&nbsp <img src="" alt="" id="icon"></p>
             </div>
             <div class="weather"></div>
-            <div class="desc"></div>
-            <div class="hi-low"></div>
         </div>
 
-        <section class="forecast_section">
-            <button id="checkDaily">Extended Forecast</button>
+        <div class="forecast_section">
+            <h4 id="checkDaily">Extended Forecast :</h4>
             <div id="forecast"></div>
-        </section>
-    </div>
+        </div>
+        
+        </div><!--end of column 1-->
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 20px 0px 10px 20px;">
+                    <span class="dayDesc2" style="font-weight: bolder; font-size: 14px;"></span><span style="font-weight: bolder; font-size: 14px">Today's Weather Condition</span>
+                </div>
+                <div class="panel-body" id="weatherDetails"></div>
+            </div>
+        </div><!--end of column 2-->
+        </div><!--end of row-->
+    </div><!--end container-->
           
         <script src="js/main.js"></script>
     </body>
