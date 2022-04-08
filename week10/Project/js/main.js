@@ -85,17 +85,17 @@ function renderCondition (weather){
       conditions.innerHTML = `
                           <ul class = "list-unstyled list-group">
                           <li class="list-group-item"><span class="wi wi-humidity"></span> Feels Like </a>
-                          <a><span class="pull-right humiditySide">${weather.main.feels_like}</span></a>
+                          <a><span class="pull-right humiditySide">${Math.round(weather.main.feels_like)}&deg;C</span></a>
                           </li>
                           <li class="list-group-item"><a><span class="wi wi-humidity"></span> Humidity </a>
                           <a><span class="pull-right humiditySide">${weather.main.humidity}%</span></a>
                           </li>
-                          <li class="list-group-item"><a><span class="wi wi-thermometer"></span> Min Temperature </a><a><span class="pull-right minSide celsi">$${Math.round(weather.main.temp_min)}&deg;C</span></a></li>
-                          <li class="list-group-item"><a><span class="wi wi-thermometer"></span> Max Temperature </a><a><span class="pull-right maxSide celsi">${Math.round(weather.main.temp_max)}°c &deg;C</span></a></li>
-                          <li class="list-group-item"><a><span class="wi wi-raindrop"></span> Weather Condition </a><a><span class="pull-right cloudiSide" style="text-transform: capitalize;">${weather.weather[0].main}</span></a></li>
-                          <li class="list-group-item"><a><span class="wi wi-wind-direction"></span> Wind Direction </a><a><span class="pull-right windDirecSide">${windDirection(weather.wind.deg)}</span></a></li>
-                          <li class="list-group-item"><a><span class="wi wi-windy"></span> Wind Speed </a><a><span class="pull-right windSpeedSide">${weather.wind.speed} meter/sec &nbsp;</span></a></li>
-                          <li class="list-group-item"><a><span class="wi wi-sunrise"></span> Sunrise / Sunset </a><a><span class="pull-right sunsetSide">${niceTime(weather.sys.sunset, weather.timezone)} </span> <span class="pull-right sunriseSide">${niceTime(weather.sys.sunrise, weather.timezone)}/</span></a></li>                      
+                          <li class="list-group-item"><a> Min Temperature </a><a><span class="pull-right minSide celsi">${Math.round(weather.main.temp_min)}&deg;C</span></a></li>
+                          <li class="list-group-item"><a> Max Temperature </a><a><span class="pull-right maxSide celsi">${Math.round(weather.main.temp_max)}&deg;C</span></a></li>
+                          <li class="list-group-item"><a> Weather Condition </a><a><span class="pull-right cloudiSide" style="text-transform: capitalize;">${weather.weather[0].main}</span></a></li>
+                          <li class="list-group-item"><a> Wind Direction </a><a><span class="pull-right windDirecSide">${windDirection(weather.wind.deg)}</span></a></li>
+                          <li class="list-group-item"><a> Wind Speed </a><a><span class="pull-right windSpeedSide">${weather.wind.speed} meter/sec &nbsp;</span></a></li>
+                          <li class="list-group-item"><a> Sunrise / Sunset </a><a><span class="pull-right sunsetSide">${niceTime(weather.sys.sunset, weather.timezone)} </span> <span class="pull-right sunriseSide">${niceTime(weather.sys.sunrise, weather.timezone)}/</span></a></li>                      
                           </ul>
       `
 }
